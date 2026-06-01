@@ -179,6 +179,18 @@
       padding: 22px;
     }
 
+    .card-link {
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s ease;
+    }
+
+    .card-link:hover {
+      border-color: rgba(255, 209, 102, 0.3);
+      background: rgba(255, 209, 102, 0.05);
+      transform: translateY(-4px);
+    }
+
     .card h3 {
       margin-bottom: 10px;
       font-size: 21px;
@@ -335,6 +347,36 @@
           <div><div class="coin">Безопасность</div><small>Как не потерять деньги</small></div>
           <div class="positive">Важно</div>
         </div>
+      </div>
+    </section>
+
+    <section class="container section">
+      <h2 class="section-title">С чего начать новичку</h2>
+      <p class="section-subtitle">Если ты только начинаешь изучать крипту, иди по этому маршруту.</p>
+      <div class="grid">
+        <a href="start.html" class="card card-link">
+          <h3>1. Пройди маршрут новичка</h3>
+          <p>Пошаговый план обучения, который поведет тебя от основ до понимания, готов ли ты вкладывать деньги.</p>
+          <span class="tag">Начни отсюда</span>
+        </a>
+        <a href="courses.html" class="card card-link">
+          <h3>2. Изучи бесплатный курс</h3>
+          <p>7 дней обучения криптовалюте с нуля. Узнаешь про Bitcoin, блокчейн, кошельки и безопасность.</p>
+          <span class="tag">7 дней</span>
+        </a>
+        <a href="security.html" class="card card-link">
+          <h3>3. Проверь правила безопасности</h3>
+          <p>Самое важное в крипто — это защита. Узнай, как не потерять деньги на скамах и фишинге.</p>
+          <span class="tag">Обязательно</span>
+        </a>
+        <a href="resources.html" class="card card-link">
+          <h3>4. Посмотри полезные ресурсы</h3>
+          <p>Сервисы для просмотра цен, кошельки и биржи. Будешь знать, где и как это использовать.</p>
+          <span class="tag">На потом</span>
+        </a>
+      </div>
+      <div style="text-align: center; margin-top: 28px;">
+        <a class="btn btn-primary" href="start.html">Начать с первого шага</a>
       </div>
     </section>
 
