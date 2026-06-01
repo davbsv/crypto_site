@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CryptoStart — крипта простым языком</title>
+  <meta name="description" content="Бесплатные уроки, статьи и гайды по криптовалюте для новичков." />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #0b0f19;
+      color: #f5f7fb;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(11, 15, 25, 0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 22px;
+      color: #ffd166;
+    }
+
+    .menu {
+      display: flex;
+      gap: 22px;
+      font-size: 15px;
+      color: #cfd6e6;
+    }
+
+    .menu a:hover {
+      color: #ffd166;
+    }
+
+    .hero {
+      padding: 82px 0 58px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 12px;
+      border: 1px solid rgba(255, 209, 102, 0.35);
+      border-radius: 999px;
+      color: #ffd166;
+      background: rgba(255, 209, 102, 0.08);
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(36px, 6vw, 64px);
+      line-height: 1.05;
+      margin-bottom: 22px;
+    }
+
+    .hero p {
+      color: #cfd6e6;
+      font-size: 19px;
+      max-width: 620px;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 20px;
+      border-radius: 14px;
+      font-weight: 700;
+      transition: 0.2s;
+    }
+
+    .btn-primary {
+      background: #ffd166;
+      color: #111827;
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      color: #f5f7fb;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero-card {
+      background: linear-gradient(145deg, rgba(255, 209, 102, 0.16), rgba(47, 128, 237, 0.12));
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 26px;
+      padding: 28px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    }
+
+    .price-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .price-row:last-child {
+      border-bottom: none;
+    }
+
+    .coin {
+      font-weight: 700;
+    }
+
+    .positive {
+      color: #7ee787;
+    }
+
+    .section {
+      padding: 58px 0;
+    }
+
+    .section-title {
+      font-size: 34px;
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      color: #aab4c8;
+      margin-bottom: 26px;
+      max-width: 720px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: #121827;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 22px;
+      padding: 22px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 21px;
+    }
+
+    .card p {
+      color: #aab4c8;
+      margin-bottom: 14px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 13px;
+      color: #ffd166;
+      background: rgba(255, 209, 102, 0.08);
+      padding: 6px 10px;
+      border-radius: 999px;
+    }
+
+    .article-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .article {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 18px;
+      border-radius: 18px;
+      background: #121827;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .article span {
+      color: #aab4c8;
+      white-space: nowrap;
+    }
+
+    .cta {
+      text-align: center;
+      padding: 48px 24px;
+      background: linear-gradient(145deg, rgba(255, 209, 102, 0.16), rgba(47, 128, 237, 0.14));
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 28px;
+    }
+
+    .cta h2 {
+      font-size: 34px;
+      margin-bottom: 12px;
+    }
+
+    .cta p {
+      color: #cfd6e6;
+      margin-bottom: 24px;
+    }
+
+    footer {
+      padding: 30px 0;
+      color: #7d8799;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin-top: 30px;
+    }
+
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 52px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .menu {
+        display: none;
+      }
+
+      .article {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="logo" href="#">CryptoStart</a>
+      <nav class="menu">
+        <a href="#courses">Курсы</a>
+        <a href="#articles">Статьи</a>
+        <a href="#tools">Инструменты</a>
+        <a href="#telegram">Telegram</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="container hero">
+      <div>
+        <div class="badge">Бесплатно для новичков</div>
+        <h1>Крипта простым языком</h1>
+        <p>Уроки, статьи, гайды и разборы для тех, кто хочет понять криптовалюту без сложных терминов и лишнего шума.</p>
+        <div class="buttons">
+          <a class="btn btn-primary" href="#courses">Начать обучение</a>
+          <a class="btn btn-secondary" href="#articles">Читать статьи</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <h2>Популярные темы</h2>
+        <div class="price-row">
+          <div><div class="coin">Bitcoin</div><small>Что такое BTC</small></div>
+          <div class="positive">Урок</div>
+        </div>
+        <div class="price-row">
+          <div><div class="coin">Кошельки</div><small>MetaMask, Trust Wallet</small></div>
+          <div class="positive">Гайд</div>
+        </div>
+        <div class="price-row">
+          <div><div class="coin">Airdrop</div><small>Как искать раздачи</small></div>
+          <div class="positive">Практика</div>
+        </div>
+        <div class="price-row">
+          <div><div class="coin">Безопасность</div><small>Как не потерять деньги</small></div>
+          <div class="positive">Важно</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="courses" class="container section">
+      <h2 class="section-title">Бесплатные курсы</h2>
+      <p class="section-subtitle">Начни с базовых уроков. Позже сюда можно добавить личный кабинет, тесты и прогресс обучения.</p>
+      <div class="grid">
+        <article class="card">
+          <h3>Крипта с нуля</h3>
+          <p>Что такое блокчейн, Bitcoin, Ethereum и зачем все это нужно.</p>
+          <span class="tag">5 уроков</span>
+        </article>
+        <article class="card">
+          <h3>Кошелек и безопасность</h3>
+          <p>Как создать кошелек, сохранить seed-фразу и не попасться мошенникам.</p>
+          <span class="tag">Практика</span>
+        </article>
+        <article class="card">
+          <h3>Биржи и покупка крипты</h3>
+          <p>Как работают биржи, P2P, комиссии и базовые правила безопасности.</p>
+          <span class="tag">Для новичков</span>
+        </article>
+      </div>
+    </section>
+
+    <section id="articles" class="container section">
+      <h2 class="section-title">Последние статьи</h2>
+      <p class="section-subtitle">Сначала можно публиковать простые статьи, а потом переводить людей с YouTube на полные инструкции.</p>
+      <div class="article-list">
+        <a class="article" href="#">
+          <strong>Что такое Bitcoin простыми словами?</strong>
+          <span>5 минут</span>
+        </a>
+        <a class="article" href="#">
+          <strong>Как создать первый криптокошелек?</strong>
+          <span>7 минут</span>
+        </a>
+        <a class="article" href="#">
+          <strong>5 ошибок новичков в крипте</strong>
+          <span>6 минут</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="tools" class="container section">
+      <h2 class="section-title">Инструменты</h2>
+      <p class="section-subtitle">Пока это просто блок-заготовка. Потом добавим калькулятор прибыли, конвертер криптовалют и трекер портфеля.</p>
+      <div class="grid">
+        <article class="card">
+          <h3>Калькулятор прибыли</h3>
+          <p>Посчитай прибыль или убыток по сделке.</p>
+          <span class="tag">Скоро</span>
+        </article>
+        <article class="card">
+          <h3>Глоссарий</h3>
+          <p>Объяснение криптотерминов человеческим языком.</p>
+          <span class="tag">Скоро</span>
+        </article>
+        <article class="card">
+          <h3>Airdrop-база</h3>
+          <p>Список проектов, где можно выполнять задания.</p>
+          <span class="tag">Скоро</span>
+        </article>
+      </div>
+    </section>
+
+    <section id="telegram" class="container section">
+      <div class="cta">
+        <h2>Подпишись на Telegram</h2>
+        <p>Там будут новости, новые уроки, разборы проектов и быстрые заметки.</p>
+        <a class="btn btn-primary" href="https://t.me/david_pro_crypto" target="_blank">Перейти в Telegram</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 CryptoStart. Образовательный проект. Не финансовая рекомендация.
+    </div>
+  </footer>
+</body>
+</html>
