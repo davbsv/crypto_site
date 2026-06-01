@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Безопасность в крипте — David Pro Crypto</title>
+  <meta name="description" content="Полное руководство по безопасности в криптовалюте для новичков. Защита от скамов, фишинга и потери денег." />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #0b0f19;
+      color: #f5f7fb;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      background: rgba(11, 15, 25, 0.9);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 22px;
+      color: #ffd166;
+    }
+
+    .menu {
+      display: flex;
+      gap: 22px;
+      font-size: 15px;
+      color: #cfd6e6;
+      flex-wrap: wrap;
+    }
+
+    .menu a:hover {
+      color: #ffd166;
+    }
+
+    .page-title {
+      padding: 60px 0 24px;
+    }
+
+    h1 {
+      font-size: clamp(34px, 6vw, 56px);
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+
+    .lead {
+      color: #cfd6e6;
+      font-size: 20px;
+      max-width: 720px;
+      margin-bottom: 48px;
+    }
+
+    .security-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+
+    .security-block {
+      background: #121827;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 22px;
+      padding: 32px;
+      transition: all 0.3s ease;
+    }
+
+    .security-block:hover {
+      border-color: rgba(255, 209, 102, 0.3);
+      background: rgba(255, 209, 102, 0.05);
+    }
+
+    .security-block h3 {
+      color: #ffd166;
+      font-size: 22px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .security-block p {
+      color: #d7deec;
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+    .security-block ul {
+      margin: 14px 0 0 20px;
+      color: #d7deec;
+      font-size: 16px;
+    }
+
+    .security-block li {
+      margin-bottom: 10px;
+    }
+
+    .security-block strong {
+      color: #ffd166;
+    }
+
+    .warning-banner {
+      background: linear-gradient(145deg, rgba(255, 209, 102, 0.12), rgba(255, 65, 65, 0.08));
+      border: 1px solid rgba(255, 209, 102, 0.25);
+      border-radius: 22px;
+      padding: 32px;
+      margin-bottom: 60px;
+    }
+
+    .warning-banner h2 {
+      color: #ffd166;
+      font-size: 26px;
+      margin-bottom: 16px;
+    }
+
+    .warning-banner p {
+      color: #d7deec;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .checklist {
+      background: #121827;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 22px;
+      padding: 32px;
+      margin-bottom: 60px;
+    }
+
+    .checklist h2 {
+      color: #ffd166;
+      font-size: 28px;
+      margin-bottom: 24px;
+    }
+
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .checklist-item:last-child {
+      border-bottom: none;
+    }
+
+    .checklist-box {
+      width: 24px;
+      height: 24px;
+      border: 2px solid #ffd166;
+      border-radius: 6px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .checklist-text {
+      color: #d7deec;
+      font-size: 16px;
+    }
+
+    .checklist-text strong {
+      color: #ffd166;
+    }
+
+    .cta {
+      margin-top: 80px;
+      padding: 48px 24px;
+      text-align: center;
+      background: linear-gradient(145deg, rgba(255, 209, 102, 0.16), rgba(47, 128, 237, 0.14));
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 28px;
+    }
+
+    .cta h2 {
+      font-size: 34px;
+      margin-bottom: 12px;
+    }
+
+    .cta p {
+      color: #cfd6e6;
+      font-size: 18px;
+      margin-bottom: 28px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 20px;
+      border-radius: 14px;
+      font-weight: 700;
+      transition: 0.2s;
+    }
+
+    .btn-primary {
+      background: #ffd166;
+      color: #111827;
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      color: #f5f7fb;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    footer {
+      padding: 30px 0;
+      color: #7d8799;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      margin-top: 30px;
+    }
+
+    @media (max-width: 800px) {
+      .menu {
+        display: none;
+      }
+
+      .security-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      .checklist-item {
+        flex-direction: row;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="logo" href="index.html">David Pro Crypto</a>
+      <nav class="menu">
+        <a href="index.html">Главная</a>
+        <a href="courses.html">Курсы</a>
+        <a href="articles.html">Статьи</a>
+        <a href="glossary.html">Глоссарий</a>
+        <a href="security.html">Безопасность</a>
+        <a href="index.html#tools">Инструменты</a>
+        <a href="index.html#telegram">Telegram</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="page-title">
+        <h1>Безопасность в крипте</h1>
+        <p class="lead">Полное руководство по защите своих средств от скамов, фишинга и потери денег.</p>
+      </div>
+
+      <div class="warning-banner">
+        <h2>⚠️ Главное правило</h2>
+        <p><strong>Никому никогда не передавай свою seed-фразу, приватный ключ или пароль от кошелька.</strong> Даже если это "поддержка" биржи, разработчик проекта или твой лучший друг. Никто не будет просить это. Если просят — это 100% скам.</p>
+      </div>
+
+      <div class="security-grid">
+        <div class="security-block">
+          <h3>🔗 Как проверять сайты</h3>
+          <p>Перед тем как зайти на сайт биржи или проекта:</p>
+          <ul>
+            <li><strong>Проверь адресную строку.</strong> Адрес должен быть точно как официальный. Скаммеры создают похожие адреса (например, "Ь" вместо "Б" в кириллице).</li>
+            <li><strong>Посмотри на сертификат.</strong> Нажми на замочек рядом с адресом. Там должна быть информация о сайте.</li>
+            <li><strong>Проверь в поиске.</strong> Гугли "официальный сайт [биржа]" и сравни адреса.</li>
+            <li><strong>Используй закладки.</strong> Создай закладку с правильным адресом. Потом заходи оттуда, не из поиска.</li>
+          </ul>
+        </div>
+
+        <div class="security-block">
+          <h3>🎣 Как не попасться на фейковую поддержку</h3>
+          <p>Мошенники выдают себя за техническую поддержку:</p>
+          <ul>
+            <li><strong>На чат приходит сообщение:</strong> "Привет, это техподдержка Binance. Помогу восстановить пароль". Это скам.</li>
+            <li><strong>Официальная поддержка никогда не пишет первой</strong> и не просит seed-фразу или пароль.</li>
+            <li><strong>Если нужна помощь,</strong> сам создай тикет в официальном чате поддержки через меню сайта.</li>
+            <li><strong>Проверь ник в чате.</strong> Официальные модераторы имеют специальную иконку рядом с ником.</li>
+          </ul>
+        </div>
+
+        <div class="security-block">
+          <h3>🔐 Как безопасно хранить пароли</h3>
+          <p>Безопасность начинается с хорошего пароля:</p>
+          <ul>
+            <li><strong>Используй менеджер паролей.</strong> 1Password, Bitwarden или KeePass. Один сложный мастер-пароль на все.</li>
+            <li><strong>Пароль должен быть длинным и сложным.</strong> 16+ символов, заглавные буквы, цифры, спецсимволы.</li>
+            <li><strong>Никогда не используй одинаковые пароли.</strong> Для каждого сайта — свой пароль.</li>
+            <li><strong>Никогда не пиши пароль в Telegram, WhatsApp или email.</strong> Это небезопасно.</li>
+          </ul>
+        </div>
+
+        <div class="security-block">
+          <h3>📱 Что такое 2FA (двухфакторная аутентификация)</h3>
+          <p>Это второй уровень защиты:</p>
+          <ul>
+            <li><strong>Ты вводишь пароль.</strong> Это первый фактор.</li>
+            <li><strong>Потом вводишь код из приложения (Google Authenticator, Authy) или SMS.</strong> Это второй фактор.</li>
+            <li><strong>Включай 2FA везде.</strong> На бирже, в email, в социальных сетях.</li>
+            <li><strong>Используй приложение, а не SMS.</strong> SMS можно перехватить. Приложения безопаснее.</li>
+            <li><strong>Сохрани резервные коды 2FA.</strong> Если потеряешь доступ к приложению, они помогут восстановить.</li>
+          </ul>
+        </div>
+
+        <div class="security-block">
+          <h3>🚫 Почему нельзя подключать кошелек ко всем сайтам</h3>
+          <p>Когда ты подключаешь кошелек (MetaMask, Trust Wallet) к сайту:</p>
+          <ul>
+            <li><strong>Сайт получает доступ к твоему адресу.</strong> Это еще нормально.</li>
+            <li><strong>Но некоторые сайты могут потребовать права на транзакции.</strong> Это уже опасно.</li>
+            <li><strong>Если это фейковый сайт, мошенник может украсть твои токены.</strong> Они получат разрешение на передачу.</li>
+            <li><strong>Подключай кошелек только к известным, проверенным сайтам.</strong> Неизвестный сайт = высокий риск.</li>
+          </ul>
+        </div>
+
+        <div class="security-block">
+          <h3>🛡️ Типы кошельков для безопасности</h3>
+          <p>Разные типы кошельков имеют разные уровни безопасности:</p>
+          <ul>
+            <li><strong>Горячий кошелек</strong> (MetaMask, Trust Wallet) — удобен, но рискован для больших сумм.</li>
+            <li><strong>Холодный кошелек</strong> (аппаратный кошелек) — самый безопасный, но не удобен для частых транзакций.</li>
+            <li><strong>Для торговли:</strong> используй горячий кошелек с небольшой суммой.</li>
+            <li><strong>Для сбережений:</strong> используй холодный кошелек.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="checklist">
+        <h2>✓ Чеклист безопасности перед переводом крипты</h2>
+        
+        <div class="checklist-item">
+          <div class="checklist-box"></div>
+          <div class="checklist-text"><strong>Адрес получателя скопирован точно.</strong> Никакие опечатки. Лучше скопируй-вставь, не пиши вручную.</div>
+        </div>
+
+        <div class="checklist-item">
+          <div class="checklist-box"></div>
+          <div class="checklist-text"><strong>Проверил адрес дважды.</strong> Сначала скопировал, потом вставил, потом сравнил с оригиналом.</div>
+        </div>
+
+        <div class="checklist-item">
+          <div class="checklist-box"></div>
+          <div class="checklist-text"><strong>Сеть правильная.</strong> Если отправляешь USDT — проверь, на какой сети он работает (Ethereum, Tron, BNB Chain). Неправильная сеть = потеря денег.</div>
+        </div>
+
+        <div class="checklist-item">
+          <div class="checklist-box"></div>
+          <div class="checklist-text"><strong>Комиссия понимаешь.</strong> Знаешь, сколько будет стоить отправка? Газ за транзакцию может быть большой.</div>
+        </div>
+
+        <div class="checklist-item">
+          <div class="checklist-box"></div>
+          <div class="checklist-text"><strong>Перечитай сумму.</strong> Ты правильно указал количество? Не поменял запятые и точки?</div>
+        </div>
+
+        <div class="checklist-item">
+          <div class="checklist-box"></div>
+          <div class="checklist-text"><strong>Это не срочно?</strong> Если предложение слишком хорошее и очень срочное — это скам. Никогда не спеши.</div>
+        </div>
+
+        <div class="checklist-item">
+          <div class="checklist-box"></div>
+          <div class="checklist-text"><strong>Кто просит деньги?</strong> Если незнакомец просит отправить крипту — это скам. Даже если он говорит, что это "волшебный способ заработать".</div>
+        </div>
+
+        <div class="checklist-item">
+          <div class="checklist-box"></div>
+          <div class="checklist-text"><strong>Отправь мизерную сумму сначала.</strong> Если впервые переводишь кому-то — отправь 1-10% от суммы, проверь, что пришло. Потом отправь остальное.</div>
+        </div>
+      </div>
+
+      <div class="cta">
+        <h2>Хочешь лучше разобраться?</h2>
+        <p>Пройди наш курс, в котором есть отдельный урок полностью про безопасность и скамы.</p>
+        <div class="buttons">
+          <a class="btn btn-primary" href="courses.html">Начать обучение</a>
+          <a class="btn btn-secondary" href="glossary.html">Смотреть глоссарий</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 David Pro Crypto. Материал носит образовательный характер. Инвестируй только то, что не жалко потерять.</p>
+    </div>
+  </footer>
+</body>
+</html>
