@@ -218,6 +218,30 @@
       white-space: nowrap;
     }
 
+    .calculator-form label {
+      display: block;
+      margin-bottom: 14px;
+      color: #cfd6e6;
+      font-size: 15px;
+    }
+
+    .calculator-form input {
+      width: 100%;
+      margin-top: 8px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: #0f172a;
+      color: #f5f7fb;
+      font-size: 16px;
+    }
+
+    .calculator-form .result {
+      margin-top: 16px;
+      color: #d7deec;
+      font-size: 16px;
+    }
+
     .cta {
       text-align: center;
       padding: 48px 24px;
@@ -283,7 +307,7 @@
         <h1>Крипта простым языком</h1>
         <p>Уроки, статьи, гайды и разборы для тех, кто хочет понять криптовалюту без сложных терминов и лишнего шума.</p>
         <div class="buttons">
-          <a class="btn btn-primary" href="#courses">Начать обучение</a>
+          <a class="btn btn-primary" href="courses.html">Начать обучение</a>
           <a class="btn btn-secondary" href="#articles">Читать статьи</a>
         </div>
       </div>
@@ -335,11 +359,11 @@
       <h2 class="section-title">Последние статьи</h2>
       <p class="section-subtitle">Сначала можно публиковать простые статьи, а потом переводить людей с YouTube на полные инструкции.</p>
       <div class="article-list">
-        <a class="article" href="#">
+        <a class="article" href="articles/bitcoin.html">
           <strong>Что такое Bitcoin простыми словами?</strong>
           <span>5 минут</span>
         </a>
-        <a class="article" href="#">
+        <a class="article" href="articles/wallet.html">
           <strong>Как создать первый криптокошелек?</strong>
           <span>7 минут</span>
         </a>
@@ -356,8 +380,13 @@
       <div class="grid">
         <article class="card">
           <h3>Калькулятор прибыли</h3>
-          <p>Посчитай прибыль или убыток по сделке.</p>
-          <span class="tag">Скоро</span>
+          <form class="calculator-form" id="profit-calculator">
+            <label>Цена покупки, $<input type="number" step="any" id="buy-price" placeholder="например 25000" /></label>
+            <label>Цена продажи, $<input type="number" step="any" id="sell-price" placeholder="например 28000" /></label>
+            <label>Количество монет<input type="number" step="any" id="amount" placeholder="например 0.1" /></label>
+            <button type="button" class="btn" id="calc-profit">Рассчитать</button>
+            <div class="result" id="profit-result">Введите данные и нажмите «Рассчитать».</div>
+          </form>
         </article>
         <article class="card">
           <h3>Глоссарий</h3>
@@ -386,5 +415,31 @@
       © 2026 CryptoStart. Образовательный проект. Не финансовая рекомендация.
     </div>
   </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const buyPrice = document.getElementById('buy-price');
+      const sellPrice = document.getElementById('sell-price');
+      const amount = document.getElementById('amount');
+      const result = document.getElementById('profit-result');
+      const button = document.getElementById('calc-profit');
+
+      button.addEventListener('click', function() {
+        const buyValue = parseFloat(buyPrice.value);
+        const sellValue = parseFloat(sellPrice.value);
+        const amountValue = parseFloat(amount.value);
+
+        if (!buyValue || !sellValue || !amountValue || buyValue <= 0 || amountValue <= 0) {
+          result.textContent = 'Введите корректные положительные числа.';
+          return;
+        }
+
+        const profit = (sellValue - buyValue) * amountValue;
+        const absoluteProfit = Math.abs(profit).toFixed(2);
+        const type = profit >= 0 ? 'прибыль' : 'убыток';
+
+        result.textContent = `Результат: ${absoluteProfit} $ ${type}.`;
+      });
+    });
+  </script>
 </body>
 </html>
