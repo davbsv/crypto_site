@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ресурсы для новичка — David Pro Crypto</title>
+  <meta name="description" content="Полезные сервисы и ссылки для изучения криптовалюты: биржи, кошельки, данные рынка и инструменты безопасности." />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #0b0f19;
+      color: #f5f7fb;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      background: rgba(11, 15, 25, 0.9);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 22px;
+      color: #ffd166;
+    }
+
+    .menu {
+      display: flex;
+      gap: 22px;
+      font-size: 15px;
+      color: #cfd6e6;
+      flex-wrap: wrap;
+    }
+
+    .menu a:hover {
+      color: #ffd166;
+    }
+
+    .page-title {
+      padding: 60px 0 24px;
+    }
+
+    h1 {
+      font-size: clamp(34px, 6vw, 56px);
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+
+    .lead {
+      color: #cfd6e6;
+      font-size: 20px;
+      max-width: 720px;
+      margin-bottom: 48px;
+    }
+
+    .warning-box {
+      background: linear-gradient(145deg, rgba(255, 209, 102, 0.12), rgba(255, 65, 65, 0.08));
+      border: 1px solid rgba(255, 209, 102, 0.25);
+      border-radius: 22px;
+      padding: 24px;
+      margin-bottom: 60px;
+    }
+
+    .warning-box strong {
+      color: #ffd166;
+    }
+
+    .warning-box p {
+      color: #d7deec;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .section {
+      margin-bottom: 60px;
+    }
+
+    .section-title {
+      color: #ffd166;
+      font-size: 28px;
+      margin-bottom: 24px;
+    }
+
+    .section-description {
+      color: #cfd6e6;
+      font-size: 16px;
+      margin-bottom: 24px;
+      max-width: 720px;
+    }
+
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+
+    .resource-card {
+      background: #121827;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 22px;
+      padding: 28px;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .resource-card:hover {
+      border-color: rgba(255, 209, 102, 0.3);
+      background: rgba(255, 209, 102, 0.05);
+    }
+
+    .resource-card h3 {
+      color: #ffd166;
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    .resource-card p {
+      color: #d7deec;
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+
+    .resource-card a {
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 12px;
+      background: rgba(255, 209, 102, 0.08);
+      border: 1px solid rgba(255, 209, 102, 0.25);
+      color: #ffd166;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+
+    .resource-card a:hover {
+      background: rgba(255, 209, 102, 0.15);
+      transform: translateX(4px);
+    }
+
+    .single-column {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .internal-section {
+      background: #121827;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 22px;
+      padding: 28px;
+      margin-top: 24px;
+    }
+
+    .internal-section h3 {
+      color: #ffd166;
+      font-size: 20px;
+      margin-bottom: 16px;
+    }
+
+    .internal-section p {
+      color: #d7deec;
+      font-size: 16px;
+      margin-bottom: 16px;
+    }
+
+    .internal-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .internal-link {
+      display: inline-block;
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: rgba(255, 209, 102, 0.08);
+      border: 1px solid rgba(255, 209, 102, 0.25);
+      color: #ffd166;
+      font-weight: 600;
+      font-size: 15px;
+      transition: all 0.2s;
+    }
+
+    .internal-link:hover {
+      background: rgba(255, 209, 102, 0.15);
+      transform: translateX(4px);
+    }
+
+    .cta {
+      margin-top: 80px;
+      padding: 48px 24px;
+      text-align: center;
+      background: linear-gradient(145deg, rgba(255, 209, 102, 0.16), rgba(47, 128, 237, 0.14));
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 28px;
+    }
+
+    .cta h2 {
+      font-size: 34px;
+      margin-bottom: 12px;
+    }
+
+    .cta p {
+      color: #cfd6e6;
+      font-size: 18px;
+      margin-bottom: 28px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 20px;
+      border-radius: 14px;
+      font-weight: 700;
+      transition: 0.2s;
+    }
+
+    .btn-primary {
+      background: #ffd166;
+      color: #111827;
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      color: #f5f7fb;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    footer {
+      padding: 30px 0;
+      color: #7d8799;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      margin-top: 30px;
+    }
+
+    @media (max-width: 800px) {
+      .menu {
+        display: none;
+      }
+
+      .resources-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      .internal-links {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="logo" href="index.html">David Pro Crypto</a>
+      <nav class="menu">
+        <a href="index.html">Главная</a>
+        <a href="courses.html">Курсы</a>
+        <a href="articles.html">Статьи</a>
+        <a href="glossary.html">Глоссарий</a>
+        <a href="security.html">Безопасность</a>
+        <a href="start.html">С чего начать</a>
+        <a href="resources.html">Ресурсы</a>
+        <a href="index.html#tools">Инструменты</a>
+        <a href="index.html#telegram">Telegram</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="page-title">
+        <h1>Ресурсы для новичка</h1>
+        <p class="lead">Полезные сервисы, которые помогают изучать крипту, смотреть цены, читать новости и соблюдать безопасность.</p>
+      </div>
+
+      <div class="warning-box">
+        <p><strong>⚠️ Важно:</strong> Эта страница носит образовательный характер. Некоторые ссылки в будущем могут быть партнерскими. Если вы зарегистрируетесь по такой ссылке, проект может получить комиссию. Это не финансовая рекомендация.</p>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">💱 Биржи</h2>
+        <p class="section-description">Площадка для покупки и продажи криптовалюты. Перед использованием изучите комиссии, правила и риски. Никогда не торопитесь и проверяйте все два раза.</p>
+        <div class="resources-grid">
+          <div class="resource-card">
+            <h3>Биржа 1</h3>
+            <p>Одна из популярных площадок для торговли криптовалютой. Позволяет покупать, продавать и обменивать разные монеты с разными парами.</p>
+            <a href="#" title="Ссылка будет заполнена позже">Перейти (заглушка)</a>
+          </div>
+          <div class="resource-card">
+            <h3>Биржа 2</h3>
+            <p>Ещё одна популярная платформа для торговли. Имеет интерфейс на русском языке и удобное мобильное приложение для новичков.</p>
+            <a href="#" title="Ссылка будет заполнена позже">Перейти (заглушка)</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">🔑 Кошельки</h2>
+        <p class="section-description">Программы для управления криптовалютой. Это инструменты, а не рекомендация хранить там большие суммы. Для больших сумм используй холодный кошелек.</p>
+        <div class="resources-grid">
+          <div class="resource-card">
+            <h3>MetaMask</h3>
+            <p>Расширение для браузера и мобильное приложение. Подходит для взаимодействия с DeFi сервисами и Web3 сайтами. Удобно для торговли и взаимодействия с протоколами.</p>
+            <a href="#" title="Ссылка будет заполнена позже">Перейти (заглушка)</a>
+          </div>
+          <div class="resource-card">
+            <h3>Trust Wallet</h3>
+            <p>Мобильный кошелек с поддержкой множества блокчейнов. Интуитивный интерфейс, встроенный браузер для Web3 сайтов. Хороший выбор для новичков.</p>
+            <a href="#" title="Ссылка будет заполнена позже">Перейти (заглушка)</a>
+          </div>
+          <div class="resource-card">
+            <h3>Rabby Wallet</h3>
+            <p>Расширение для браузера, похоже на MetaMask, но с больше функций и удобнее интерфейс. Поддерживает множество сетей и токенов. Хороший вариант для продвинутых новичков.</p>
+            <a href="#" title="Ссылка будет заполнена позже">Перейти (заглушка)</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">📊 Данные рынка</h2>
+        <p class="section-description">Сервисы для просмотра цен, капитализации, информации о монетах и аналитики. Здесь можно смотреть, что происходит на рынке.</p>
+        <div class="resources-grid">
+          <div class="resource-card">
+            <h3>CoinMarketCap</h3>
+            <p>Крупнейший сервис с информацией о криптовалютах. Показывает цены, капитализацию, 24ч объем торговли, графики и новости. На русском языке.</p>
+            <a href="#" title="Ссылка будет заполнена позже">Перейти (заглушка)</a>
+          </div>
+          <div class="resource-card">
+            <h3>CoinGecko</h3>
+            <p>Альтернатива CoinMarketCap с подробной информацией о проектах. Показывает не только цены, но и рейтинги, события и данные о разработчиках проектов.</p>
+            <a href="#" title="Ссылка будет заполнена позже">Перейти (заглушка)</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">🛡️ Безопасность</h2>
+        <p class="section-description">Самое важное для защиты твоих средств. Начни с изучения основных правил безопасности.</p>
+        <div class="internal-section">
+          <h3>На нашем сайте:</h3>
+          <div class="internal-links">
+            <a href="security.html" class="internal-link">→ Полное руководство по безопасности</a>
+            <a href="lessons/day6.html" class="internal-link">→ Урок о скамах и защите</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta">
+        <h2>Готов начать?</h2>
+        <p>Начни с бесплатного курса на 7 дней, затем изучи ресурсы здесь.</p>
+        <div class="buttons">
+          <a class="btn btn-primary" href="courses.html">Пройти бесплатный курс</a>
+          <a class="btn btn-secondary" href="https://t.me/david_pro_crypto" target="_blank">Перейти в Telegram</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 David Pro Crypto. Материалы носят образовательный характер и не являются финансовой рекомендацией.</p>
+    </div>
+  </footer>
+</body>
+</html>
