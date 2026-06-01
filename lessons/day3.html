@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>День 3 — Криптокошелек и seed-фраза — David Pro Crypto</title>
+  <meta name="description" content="Урок 3: Выбор кошелька, создание и безопасное хранение seed-фразы для защиты средств." />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #0b0f19;
+      color: #f5f7fb;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(850px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      background: rgba(11, 15, 25, 0.9);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      position: sticky;
+      top: 0;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 22px;
+      color: #ffd166;
+    }
+
+    .back {
+      color: #cfd6e6;
+      font-size: 15px;
+    }
+
+    .back:hover {
+      color: #ffd166;
+    }
+
+    article {
+      padding: 60px 0;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 12px;
+      border: 1px solid rgba(255, 209, 102, 0.35);
+      border-radius: 999px;
+      color: #ffd166;
+      background: rgba(255, 209, 102, 0.08);
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(34px, 6vw, 56px);
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+
+    .lead {
+      color: #cfd6e6;
+      font-size: 20px;
+      margin-bottom: 34px;
+    }
+
+    h2 {
+      margin-top: 34px;
+      margin-bottom: 12px;
+      font-size: 28px;
+    }
+
+    p {
+      color: #d7deec;
+      margin-bottom: 18px;
+      font-size: 18px;
+    }
+
+    ul {
+      margin: 14px 0 24px 22px;
+      color: #d7deec;
+      font-size: 18px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    .warning {
+      margin-top: 34px;
+      padding: 20px;
+      border-radius: 18px;
+      background: rgba(255, 209, 102, 0.1);
+      border: 1px solid rgba(255, 209, 102, 0.25);
+      color: #f5f7fb;
+    }
+
+    .cta {
+      margin-top: 40px;
+      padding: 28px;
+      border-radius: 24px;
+      background: #121827;
+      border: 1px solid rgba(255,255,255,0.08);
+      text-align: center;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 14px 20px;
+      border-radius: 14px;
+      font-weight: 700;
+      background: #ffd166;
+      color: #111827;
+      margin-right: 10px;
+    }
+
+    footer {
+      padding: 30px 0;
+      color: #7d8799;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="logo" href="../index.html">David Pro Crypto</a>
+      <div>
+        <a class="back" href="../courses.html">← Назад к курсу</a>
+        <a class="back" href="https://t.me/david_pro_crypto" target="_blank">Telegram</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <article>
+      <div class="badge">Курс • День 3</div>
+
+      <h1>Криптокошелек и seed-фраза</h1>
+
+      <p class="lead">
+        Криптокошелек — это как твой личный сейф в интернете. Только здесь вместо деньги хранятся секретные ключи для доступа к крипто.
+      </p>
+
+      <h2>Что такое криптокошелек?</h2>
+
+      <p>
+        Криптокошелек не хранит сами монеты. Он хранит ключи, которые подтверждают, что это твои деньги. Без ключей никто не может потратить твою крипто.
+      </p>
+
+      <h2>Какие бывают кошельки?</h2>
+
+      <ul>
+        <li><strong>Мобильные</strong> — приложение на телефоне, удобно для повседневного использования.</li>
+        <li><strong>Веб-кошельки</strong> — работают в браузере, быстрый доступ, но менее безопасны.</li>
+        <li><strong>Аппаратные</strong> — специальное устройство, самое безопасное для больших сумм.</li>
+        <li><strong>Бумажные</strong> — просто напечатанные ключи на бумаге, очень безопасно, но неудобно.</li>
+      </ul>
+
+      <h2>Что такое seed-фраза?</h2>
+
+      <p>
+        Seed-фраза — это 12 или 24 слова, которые восстанавливают твой кошелек. Если ты потеряешь доступ к кошельку, эти слова смогут вернуть тебе доступ.
+      </p>
+
+      <h2>Правила безопасности seed-фразы</h2>
+
+      <ul>
+        <li>Никогда не сохраняй seed в телефоне, облаке или интернете.</li>
+        <li>Напиши seed на бумагу и храни в безопасном месте.</li>
+        <li>Не показывай seed никому.</li>
+        <li>Если кто-то украдёт seed, они смогут украсть всю твою крипто.</li>
+      </ul>
+
+      <h2>Первая настройка кошелька</h2>
+
+      <p>
+        Когда ты создаёшь новый кошелек, система автоматически генерирует seed-фразу. Это твой главный ключ к кошельку. Никогда не теряй эту фразу!
+      </p>
+
+      <div class="warning">
+        ⚠️ Материал носит образовательный характер и не является финансовой рекомендацией. Беги seed-фразу как зеницу ока!
+      </div>
+
+      <div class="cta">
+        <a class="btn" href="../courses.html">← Назад к курсу</a>
+        <a class="btn" href="https://t.me/david_pro_crypto" target="_blank">Перейти в Telegram</a>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 David Pro Crypto. Образовательный проект. Не финансовая рекомендация.
+    </div>
+  </footer>
+</body>
+</html>
