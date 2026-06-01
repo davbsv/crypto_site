@@ -367,7 +367,7 @@
           <strong>Как создать первый криптокошелек?</strong>
           <span>7 минут</span>
         </a>
-        <a class="article" href="#">
+        <a class="article" href="articles/mistakes.html">
           <strong>5 ошибок новичков в крипте</strong>
           <span>6 минут</span>
         </a>
@@ -383,7 +383,7 @@
           <form class="calculator-form" id="profit-calculator">
             <label>Цена покупки, $<input type="number" step="any" id="buy-price" placeholder="например 25000" /></label>
             <label>Цена продажи, $<input type="number" step="any" id="sell-price" placeholder="например 28000" /></label>
-            <label>Количество монет<input type="number" step="any" id="amount" placeholder="например 0.1" /></label>
+            <label>Сумма вложения, $<input type="number" step="any" id="amount" placeholder="например 1000" /></label>
             <button type="button" class="btn" id="calc-profit">Рассчитать</button>
             <div class="result" id="profit-result">Введите данные и нажмите «Рассчитать».</div>
           </form>
@@ -426,18 +426,23 @@
       button.addEventListener('click', function() {
         const buyValue = parseFloat(buyPrice.value);
         const sellValue = parseFloat(sellPrice.value);
-        const amountValue = parseFloat(amount.value);
+        const investmentValue = parseFloat(amount.value);
 
-        if (!buyValue || !sellValue || !amountValue || buyValue <= 0 || amountValue <= 0) {
+        if (!buyValue || !sellValue || !investmentValue || buyValue <= 0 || investmentValue <= 0) {
           result.textContent = 'Введите корректные положительные числа.';
           return;
         }
 
-        const profit = (sellValue - buyValue) * amountValue;
-        const absoluteProfit = Math.abs(profit).toFixed(2);
+        const coins = investmentValue / buyValue;
+        const finalValue = coins * sellValue;
+        const profit = finalValue - investmentValue;
+        const percent = ((sellValue - buyValue) / buyValue) * 100;
         const type = profit >= 0 ? 'прибыль' : 'убыток';
 
-        result.textContent = `Результат: ${absoluteProfit} $ ${type}.`;
+        result.innerHTML = `Количество монет: ${coins.toFixed(6)}<br>` +
+          `Итоговая стоимость: ${finalValue.toFixed(2)} $<br>` +
+          `Прибыль (${type}): ${profit.toFixed(2)} $<br>` +
+          `Процент прибыли: ${percent.toFixed(2)} %`;
       });
     });
   </script>
